@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+#pugEarLeft {
+  animation: 1.2s ease-in-out infinite alternate earMovementLeft;
+}
+
+@keyframes earMovementLeft {
+  from {
+    transform: translateY(0);
+    transform: translateX(0);
+  }
+  to {
+    transform: translate(-5px, 10px);
+  }
+}
+
+#pugEarRight {
+  animation: 1.2s ease-in-out infinite alternate earMovementRight;
+}
+
+@keyframes earMovementRight {
+  from {
+    transform: translateY(0);
+    transform: translateX(0);
+  }
+  to {
+    transform: translate(5px, 10px);
+  }
+}
+
+#tongue {
+  animation: 1.8s ease-in-out infinite alternate tongueMovement;
+}
+
+@keyframes tongueMovement {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+.play #left-hand,.play #right-hand{
+  /* @keyframes duration | easing-function | delay |
+iteration-count | direction | fill-mode | play-state | name */
+  animation: 0.3s linear 12 alternate handMovement;
+}
+
+@keyframes handMovement {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
+
+.play .pug-body{
+  /* @keyframes duration | easing-function | delay |
+iteration-count | direction | fill-mode | play-state | name */
+  animation: 0.3s linear 12 alternate bodyMovement !important;
+}
+@keyframes bodyMovement {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-20px);
+  }
+}
