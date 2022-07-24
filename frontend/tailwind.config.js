@@ -6,6 +6,11 @@ module.exports = {
     "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    extend: {
+      fontFamily: {
+        // 'sans': ['Edu NSW ACT Foundation', 'cursive'],
+      },
+    },
     container: {
         screens: {
             'sm': '640px',

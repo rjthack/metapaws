@@ -51,7 +51,7 @@ contract Pet is FoodBank, ERC721Enumerable {
   // Feeding override
   function depositFood() public payable override {
     // Update pets' statuses first
-    updatePetsOf(msg.sender);
+    _updatePetsOf(msg.sender);
 
     // Deposit food
     super.depositFood();

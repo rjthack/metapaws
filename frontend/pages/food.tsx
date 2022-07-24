@@ -49,15 +49,23 @@ export default function DepositFood() {
   }, [address, updateFoodBalance, updateIsUserOwner]);
 
   const depositFood = async () => {
-    const signer = getProvider().getSigner();
-    const contract = new ethers.Contract(PET_ADDRESS, petContract.abi, signer);
+    try {
+      const signer = getProvider().getSigner();
+      const contract = new ethers.Contract(
+        PET_ADDRESS,
+        petContract.abi,
+        signer
+      );
 
-    const receipt = await contract.depositFood({
-      value: ethers.utils.parseEther(depositAmount.toString()),
-    });
-    await receipt.wait();
+      const receipt = await contract.depositFood({
+        value: ethers.utils.parseEther(depositAmount.toString()),
+      });
+      await receipt.wait();
 
-    await updateFoodBalance();
+      await updateFoodBalance();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // const withdrawFood = async () => {
